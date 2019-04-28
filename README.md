@@ -5,6 +5,20 @@
 [![License](https://img.shields.io/cocoapods/l/Randy.svg?style=flat)](https://cocoapods.org/pods/Randy)
 [![Platform](https://img.shields.io/cocoapods/p/Randy.svg?style=flat)](https://cocoapods.org/pods/Randy)
 
+## Usage
+
+As of now, there's a default random generator. Here are all the calls and their outputs:
+
+```
+getDefaultRandom(type: .address) //8181 cijacija Drive
+getDefaultRandom(type: .driversLicense) //32323232
+getDefaultRandom(type: .email) //idboVCEL33@gmail.com
+getDefaultRandom(type: .password) //jpjkCZEX00@)!@
+getDefaultRandom(type: .phoneNumber) // 2323232323
+getDefaultRandom(type: .username) // fjteJNLI70
+getDefaultRandom(type: .zip) // 58585
+```
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -22,7 +36,7 @@ pod 'Randy'
 
 ## Author
 
-akashkundu92@gmail.com, akashkundu92@gmail.com
+dev.akashkundu@gmail.com
 
 ## License
 
