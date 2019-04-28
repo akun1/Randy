@@ -17,14 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
-        print(getDefaultRandom(type: .address))
-        print(getDefaultRandom(type: .driversLicense))
-        print(getDefaultRandom(type: .email))
-        print(getDefaultRandom(type: .password))
-        print(getDefaultRandom(type: .phoneNumber))
-        print(getDefaultRandom(type: .username))
-        print(getDefaultRandom(type: .zip))
+        print("Username: " + getDefaultRandom(type: .username))
+        print("Password: " + getDefaultRandom(type: .password))
+        print("Email: " + getDefaultRandom(type: .email))
+        print("Phone Number: " + getDefaultRandom(type: .phoneNumber))
+        print("Day: " + getDefaultRandom(type: .day))
+        print("Year: " + getDefaultRandom(type: .year))
+        print("Address: " + getDefaultRandom(type: .address))
+        print("ZIP: " + getDefaultRandom(type: .zip))
+        print("Credit Card Number: " + getDefaultRandom(type: .creditCardNumber))
+        print("Credit Card Security Code: " + getDefaultRandom(type: .creditCardSecurityCode))
+        print("Social Security Number: " + getDefaultRandom(type: .socialSecurityNumber))
+        print("Drivers License: " + getDefaultRandom(type: .driversLicense))
+        print("Car License Plate Number: " + getDefaultRandom(type: .carLicensePlateNumber))
+        print("Car VIN Pre-1981: " + getDefaultRandom(type: .carVinNumberPre1981))
+        print("Car VIN Post-1981: " + getDefaultRandom(type: .carVinNumberPost1981))
+        print("Bad ISBN13: " + getDefaultRandom(type: .badIsbn13))
         
         return true
     }
