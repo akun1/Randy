@@ -6,9 +6,32 @@ public enum FormType {
     case password
     case email
     case phoneNumber
-    case driversLicense
+    
     case address
     case zip
+    
+    case creditCardNumber
+    case creditCardExpirationDate
+    case creditCardSecurityCode
+    
+    case socialSecurityNumber
+    
+    case driversLicense
+    case carMake
+    case carModel
+    case carYear
+    case carLicensePlateNumber
+    case carVinNumberPre1981
+    case carVinNumberPost1981
+    
+    case isbn10
+    case isbn13
+}
+
+public enum OutputType {
+    case qrCode
+    case barCode
+    case string
 }
 
 public struct CharacterPool {
@@ -24,7 +47,6 @@ public struct CharacterPool {
 // MARK: - Public Functions
 
 public func getDefaultRandom(type: FormType) -> String {
-    
     let lowerCaseSegment = getRandomElements(arr: CharacterPool.shared.lowerCaseLetters, max: 3)
     let upperCaseSegment = getRandomElements(arr: CharacterPool.shared.upperCaseLetters, max: 3)
     let numberSegment = getRandomElements(arr: CharacterPool.shared.numbers, max: 1)
@@ -54,6 +76,31 @@ public func getDefaultRandom(type: FormType) -> String {
     case .zip:
         result = String(String(repeating: String(numberSegment), count: 3).dropLast())
         break
+    case .creditCardNumber:
+        result = String(String(repeating: String(numberSegment), count: 8).dropLast())
+        break
+    case .creditCardExpirationDate:
+        <#code#>
+    case .creditCardSecurityCode:
+        <#code#>
+    case .socialSecurityNumber:
+        <#code#>
+    case .carMake:
+        <#code#>
+    case .carModel:
+        <#code#>
+    case .carYear:
+        <#code#>
+    case .carLicensePlateNumber:
+        <#code#>
+    case .carVinNumberPre1981:
+        <#code#>
+    case .carVinNumberPost1981:
+        <#code#>
+    case .isbn10:
+        <#code#>
+    case .isbn13:
+        <#code#>
     }
     return result
 }
@@ -64,4 +111,11 @@ private func getRandomElements(arr: [Character], min: Int = 0, max: Int) -> [Cha
     return (min...max).compactMap({_ in arr.randomElement()})
 }
 
+private func getRandom(type: CharacterPool, count: Int) -> [Character] {
+    switch type {
+    case .upperCaseLetter:
+        break
+    }
+    return (min...max).compactMap({_ in arr.randomElement()})
+}
 
