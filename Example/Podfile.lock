@@ -1,0 +1,16 @@
+PODS:
+  - Randy (0.1.0)
+
+DEPENDENCIES:
+  - Randy (from `../`)
+
+EXTERNAL SOURCES:
+  Randy:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Randy: c7d6f502a6ab8589c25810bf9eef32f9a52a1ad9
+
+PODFILE CHECKSUM: e284261232e0020a7e721df7173390c03e405dae
+
+COCOAPODS: 1.5.3
