@@ -5,6 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/Randy.svg?style=flat)](https://cocoapods.org/pods/Randy)
 [![Platform](https://img.shields.io/cocoapods/p/Randy.svg?style=flat)](https://cocoapods.org/pods/Randy)
 
+----------------
+
+An easy to use Swift framework generating random values for testing and development.
+
+|         | Main Features  |
+----------|-----------------
+:v: | Say goodbye to hard coding random values during testing.
+:exclamation:| Support for 16+ types of form text.
+:heart: | Simply syntax for ease of use.
+:baby_chick: | Written in pure Swift.
+
 ## Usage
 
 As of now, there's a default random generator. All you have to do is ```import Randy``` on the file you need to use it in and then call the ```getDefaultRandom``` function with the type of random text you want as the argument. All the types of random text can be found below. Here are all the calls and sample outputs:
