@@ -1,42 +1,23 @@
-#
-# Be sure to run `pod lib lint Randy.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
-  s.name             = 'Randy'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Randy.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.name         = "Randy"
+  s.version      = "0.0.1"
+  s.summary      = "Random value generation made easy."
+  s.license      = { :type => 'MIT' }
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description  = <<-DESC
+This library provides easy to use functions that generate random values that you can use to test your app or speed up the development process.
+                   DESC
 
-  s.homepage         = 'https://github.com/akashkundu92@gmail.com/Randy'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'akashkundu92@gmail.com' => 'akashkundu92@gmail.com' }
-  s.source           = { :git => 'https://github.com/akashkundu92@gmail.com/Randy.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.homepage     = "https://github.com/akun1/Randy"
+  s.author             = { "Akash Kundu" => "dev.akashkundu@gmail.com" }
 
-  s.ios.deployment_target = '8.0'
+  s.platform     = :ios, "10.0"
+  s.swift_version = "5.0"
 
-  s.source_files = 'Randy/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Randy' => ['Randy/Assets/*.png']
-  # }
+  s.source       = { :git => "https://github.com/akun1/Randy.git", :tag => "#{s.version}" }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files  = "Randy/Classes/**/*"
+  s.exclude_files = "Classes/Exclude"
+
 end
