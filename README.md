@@ -7,16 +7,48 @@
 
 ## Usage
 
-As of now, there's a default random generator. Here are all the calls and some sample outputs:
+As of now, there's a default random generator. Here are all the calls and sample outputs:
+
+Calls:
 
 ```
-getDefaultRandom(type: .address)          //8181 cijacija Drive
-getDefaultRandom(type: .driversLicense)   //32323232
-getDefaultRandom(type: .email)            //idboVCEL33@gmail.com
-getDefaultRandom(type: .password)         //jpjkCZEX00@)!@
-getDefaultRandom(type: .phoneNumber)      // 2323232323
-getDefaultRandom(type: .username)         // fjteJNLI70
-getDefaultRandom(type: .zip)              // 58585
+print("Username: " + getDefaultRandom(type: .username))
+print("Password: " + getDefaultRandom(type: .password))
+print("Email: " + getDefaultRandom(type: .email))
+print("Phone Number: " + getDefaultRandom(type: .phoneNumber))
+print("Day: " + getDefaultRandom(type: .day))
+print("Year: " + getDefaultRandom(type: .year))
+print("Address: " + getDefaultRandom(type: .address))
+print("ZIP: " + getDefaultRandom(type: .zip))
+print("Credit Card Number: " + getDefaultRandom(type: .creditCardNumber))
+print("Credit Card Security Code: " + getDefaultRandom(type: .creditCardSecurityCode))
+print("Social Security Number: " + getDefaultRandom(type: .socialSecurityNumber))
+print("Drivers License: " + getDefaultRandom(type: .driversLicense))
+print("Car License Plate Number: " + getDefaultRandom(type: .carLicensePlateNumber))
+print("Car VIN Pre-1981: " + getDefaultRandom(type: .carVinNumberPre1981))
+print("Car VIN Post-1981: " + getDefaultRandom(type: .carVinNumberPost1981))
+print("Bad ISBN13: " + getDefaultRandom(type: .badIsbn13))
+```
+
+Outputs:
+
+```
+Username: wLSpg4ZU
+Password: ujbtrsSyv$
+Email: eOvj5tOY@gmail.com
+Phone Number: 5264209312
+Day: Monday
+Year: 7310
+Address: 2025 leeejy Drive
+ZIP: 64876
+Credit Card Number: 4851707637446305
+Credit Card Security Code: 413
+Social Security Number: 418852351
+Drivers License: 98396247
+Car License Plate Number: 3ULWGGF
+Car VIN Pre-1981: 00081029277
+Car VIN Post-1981: 58672800222630652
+Bad ISBN13: 9786711130335
 ```
 
 ## Example
