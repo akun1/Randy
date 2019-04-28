@@ -1,5 +1,6 @@
 # Randy
 
+[![Coverage Status](https://coveralls.io/repos/github/akun1/Randy/badge.svg?branch=master)](https://coveralls.io/github/akun1/Randy?branch=master)
 [![CI Status](https://img.shields.io/travis/akashkundu92@gmail.com/Randy.svg?style=flat)](https://travis-ci.org/akashkundu92@gmail.com/Randy)
 [![Version](https://img.shields.io/cocoapods/v/Randy.svg?style=flat)](https://cocoapods.org/pods/Randy)
 [![License](https://img.shields.io/cocoapods/l/Randy.svg?style=flat)](https://cocoapods.org/pods/Randy)
