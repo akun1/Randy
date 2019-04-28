@@ -1,3 +1,5 @@
+<img src="./randy_icon.png" alt="drawing" width="200"/>
+
 # Randy
 
 [![Coverage Status](https://coveralls.io/repos/github/akun1/Randy/badge.svg?branch=master)](https://coveralls.io/github/akun1/Randy?branch=master)
