@@ -52,7 +52,7 @@ public func getDefaultRandom(type: FormType) -> String {
         result = String(repeating: String(numberSegment), count: 2) + " " + String(repeating: String(lowerCaseSegment), count: 2) + " Drive"
         break
     case .zip:
-        result = String(repeating: String(numberSegment), count: 5)
+        result = String(String(repeating: String(numberSegment), count: 3).dropLast())
         break
     }
     return result
