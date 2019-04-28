@@ -6,6 +6,10 @@ public enum FormType {
     case password
     case email
     case phoneNumber
+    case date
+    case day
+    case month
+    case year
     
     case address
     case zip
@@ -19,7 +23,6 @@ public enum FormType {
     case driversLicense
     case carMake
     case carModel
-    case carYear
     case carLicensePlateNumber
     case carVinNumberPre1981
     case carVinNumberPost1981
@@ -34,50 +37,68 @@ public enum OutputType {
     case string
 }
 
-public struct CharacterPool {
-    static let shared = CharacterPool()
-    let upperCaseLetters: [Character] = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    let lowerCaseLetters: [Character] = Array("abcdefghijklmnopqrstuvwxyz")
-    let numbers: [Character] = Array("0123456789")
-    let allSpecialCharacters: [Character] = Array("!#$%&'()*+,-./:;<=>?@[]^_`{|}~")
-    let specialCharactersFromNumbersOnly: [Character] = Array("!@#$%^&*()")
-    private init() {}
+public enum CharacterPool {
+    case upperCaseLetters
+    case lowerCaseLetters
+    case allNumbers
+    case nonZeroNumbers
+    case allSpecialCharacters
+    case specialCharactersFromNumbersOnly
 }
 
 // MARK: - Public Functions
 
-public func getDefaultRandom(type: FormType) -> String {
-    let lowerCaseSegment = getRandomElements(arr: CharacterPool.shared.lowerCaseLetters, max: 3)
-    let upperCaseSegment = getRandomElements(arr: CharacterPool.shared.upperCaseLetters, max: 3)
-    let numberSegment = getRandomElements(arr: CharacterPool.shared.numbers, max: 1)
-    let specialSegment = getRandomElements(arr: CharacterPool.shared.specialCharactersFromNumbersOnly, max: 3)
-    
+public func getCharacterPool(type: CharacterPool) -> [Character] {
     var result: String = ""
-    
+    switch type {
+    case .upperCaseLetters:
+        result = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        break
+    case .lowerCaseLetters:
+        result = "abcdefghijklmnopqrstuvwxyz"
+        break
+    case .allNumbers:
+        result = "0123456789"
+        break
+    case .nonZeroNumbers:
+        result = "123456789"
+        break
+    case .allSpecialCharacters:
+        result = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+        break
+    case .specialCharactersFromNumbersOnly:
+        result = "!@#$%^&*()"
+        break
+    }
+    return Array(result)
+}
+
+public func getDefaultRandom(type: FormType) -> String {
+    var result: String = ""
     switch type {
     case .username:
-        result = String(lowerCaseSegment + upperCaseSegment + numberSegment)
+        result = getRandom(types: [.lowerCaseLetters, .upperCaseLetters, .allNumbers]).joined()
         break
     case .password:
-        result = String(lowerCaseSegment + upperCaseSegment + numberSegment + specialSegment)
+        result = getRandom(types: [.lowerCaseLetters, .upperCaseLetters, .allNumbers, .specialCharactersFromNumbersOnly]).joined()
         break
     case .email:
-        result = String(lowerCaseSegment + upperCaseSegment + numberSegment) + "@gmail.com"
+        result = getDefaultRandom(type: .username) + "@gmail.com"
         break
     case .phoneNumber:
-        result = String(repeating: String(numberSegment), count: 5)
+        result = getRandom(type: .nonZeroNumbers, count: 1) + getRandom(type: .allNumbers, count: 9)
         break
     case .driversLicense:
-        result = String(repeating: String(numberSegment), count: 4)
+        result = getRandom(type: .allNumbers, count: 8)
         break
     case .address:
-        result = String(repeating: String(numberSegment), count: 2) + " " + String(repeating: String(lowerCaseSegment), count: 2) + " Drive"
+        result = getRandom(type: .nonZeroNumbers, count: 1) + getRandom(type: .allNumbers, count: 3) + " " + getRandom(type: .lowerCaseLetters, count: 6) + " Drive"
         break
     case .zip:
-        result = String(String(repeating: String(numberSegment), count: 3).dropLast())
+        result = getRandom(type: .nonZeroNumbers, count: 1) + getRandom(type: .allNumbers, count: 4)
         break
     case .creditCardNumber:
-        result = String(String(repeating: String(numberSegment), count: 8).dropLast())
+        result = getRandom(type: .allNumbers, count: 16)
         break
     case .creditCardExpirationDate:
         <#code#>
@@ -107,15 +128,20 @@ public func getDefaultRandom(type: FormType) -> String {
 
 // MARK: - Private Functions
 
-private func getRandomElements(arr: [Character], min: Int = 0, max: Int) -> [Character] {
-    return (min...max).compactMap({_ in arr.randomElement()})
-}
-
-private func getRandom(type: CharacterPool, count: Int) -> [Character] {
-    switch type {
-    case .upperCaseLetter:
-        break
+private func getRandom(type: CharacterPool, count: Int) -> String {
+    if count < 0 {
+        fatalError("Count must be non negative.")
     }
-    return (min...max).compactMap({_ in arr.randomElement()})
+    return String((0...count).compactMap({_ in getCharacterPool(type: type).randomElement()}))
 }
 
+private func getRandom(types: [CharacterPool]) -> [String] {
+    var results: [String] = []
+    if types.count < 1 {
+        fatalError("Types argument must be greater than 0.")
+    }
+    for type in types {
+        results.append(getRandom(type: type, count: 3))
+    }
+    return results
+}
