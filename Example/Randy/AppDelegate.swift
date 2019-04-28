@@ -17,8 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        greet()
         
+        print(getDefaultRandom(type: .address))
+        print(getDefaultRandom(type: .driversLicense))
+        print(getDefaultRandom(type: .email))
+        print(getDefaultRandom(type: .password))
+        print(getDefaultRandom(type: .phoneNumber))
+        print(getDefaultRandom(type: .username))
+        print(getDefaultRandom(type: .zip))
         
         return true
     }
