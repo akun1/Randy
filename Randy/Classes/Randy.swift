@@ -21,13 +21,10 @@ public enum FormType {
     case socialSecurityNumber
     
     case driversLicense
-    case carMake
-    case carModel
     case carLicensePlateNumber
     case carVinNumberPre1981
     case carVinNumberPost1981
     
-    case isbn10
     case isbn13
 }
 
@@ -77,25 +74,25 @@ public func getDefaultRandom(type: FormType) -> String {
     var result: String = ""
     switch type {
     case .username:
-        result = getRandom(types: [.lowerCaseLetters, .upperCaseLetters, .allNumbers]).joined()
+        result = getRandomCombinationWithPrefix(types: [.lowerCaseLetters, .allNumbers, .upperCaseLetters], prefixType: .lowerCaseLetters, totalCount: 8)
         break
     case .password:
-        result = getRandom(types: [.lowerCaseLetters, .upperCaseLetters, .allNumbers, .specialCharactersFromNumbersOnly]).joined()
+        result = getRandomCombinationWithPrefix(types: [.lowerCaseLetters, .upperCaseLetters, .allNumbers, .specialCharactersFromNumbersOnly], prefixType: .lowerCaseLetters, totalCount: 10)
         break
     case .email:
         result = getDefaultRandom(type: .username) + "@gmail.com"
         break
     case .phoneNumber:
-        result = getRandom(type: .nonZeroNumbers, count: 1) + getRandom(type: .allNumbers, count: 9)
+        result = getRandomWithPrefix(type: .allNumbers, prefixType: .nonZeroNumbers, totalCount: 10)
         break
     case .driversLicense:
-        result = getRandom(type: .allNumbers, count: 8)
+        result = getRandomWithPrefix(type: .allNumbers, prefixType: .nonZeroNumbers, totalCount: 8)
         break
     case .address:
-        result = getRandom(type: .nonZeroNumbers, count: 1) + getRandom(type: .allNumbers, count: 3) + " " + getRandom(type: .lowerCaseLetters, count: 6) + " Drive"
+        result = getRandomWithPrefix(type: .allNumbers, prefixType: .nonZeroNumbers, totalCount: 4) + " " + getRandom(type: .lowerCaseLetters, count: 6) + " Drive"
         break
     case .zip:
-        result = getRandom(type: .nonZeroNumbers, count: 1) + getRandom(type: .allNumbers, count: 4)
+        result = getRandomWithPrefix(type: .allNumbers, prefixType: .nonZeroNumbers, totalCount: 5)
         break
     case .creditCardNumber:
         result = getRandom(type: .allNumbers, count: 16)
@@ -103,24 +100,30 @@ public func getDefaultRandom(type: FormType) -> String {
     case .creditCardExpirationDate:
         <#code#>
     case .creditCardSecurityCode:
-        <#code#>
+        result = getRandom(type: .allNumbers, count: 3)
+        break
     case .socialSecurityNumber:
-        <#code#>
-    case .carMake:
-        <#code#>
-    case .carModel:
-        <#code#>
-    case .carYear:
-        <#code#>
+        result = getRandom(type: .allNumbers, count: 9)
+        break
     case .carLicensePlateNumber:
-        <#code#>
+        result = getRandomCombinationWithPrefix(types: [.allNumbers, .upperCaseLetters], prefixType: .nonZeroNumbers, totalCount: 7)
+        break
     case .carVinNumberPre1981:
-        <#code#>
+        result = getRandomWithRandomLength(type: .allNumbers, lengthMin: 11, lengthMax: 17)
+        break
     case .carVinNumberPost1981:
-        <#code#>
-    case .isbn10:
-        <#code#>
+        result = getRandom(type: .allNumbers, count: 17)
+        break
     case .isbn13:
+        guard let prefix = ["978", "979"].randomElement() else {}
+        result = prefix + getRandomWithRandomLength(type: .allNumbers, lengthMin: 1, lengthMax: 5) + getRandomWithRandomLength(type: .allNumbers, lengthMin: 1, lengthMax: 7) + getRandomWithRandomLength(type: .allNumbers, lengthMin: 1, lengthMax: 6)
+    case .date:
+        <#code#>
+    case .day:
+        <#code#>
+    case .month:
+        <#code#>
+    case .year:
         <#code#>
     }
     return result
@@ -136,12 +139,49 @@ private func getRandom(type: CharacterPool, count: Int) -> String {
 }
 
 private func getRandom(types: [CharacterPool]) -> [String] {
-    var results: [String] = []
     if types.count < 1 {
         fatalError("Types argument must be greater than 0.")
     }
+    var results: [String] = []
     for type in types {
         results.append(getRandom(type: type, count: 3))
     }
     return results
+}
+
+private func getRandomCombination(types: [CharacterPool], totalCount: Int) -> String {
+    if totalCount < 0 {
+        fatalError("Totla Count must be non negative.")
+    }
+    var totalPool: String = ""
+    for type in types {
+        totalPool += getCharacterPool(type: type)
+    }
+    return String((0...totalCount).compactMap({_ in totalPool.randomElement()}))
+}
+
+private func getRandomWithPrefix(type: CharacterPool, prefixType: CharacterPool, totalCount: Int) -> String {
+    if totalCount < 0 {
+        fatalError("Totla Count must be non negative.")
+    }
+    return String((0...1).compactMap({_ in getCharacterPool(type: prefixType).randomElement()})) + String((0...totalCount - 1).compactMap({_ in getCharacterPool(type: type).randomElement()}))
+}
+
+private func getRandomCombinationWithPrefix(types: [CharacterPool], prefixType: CharacterPool, totalCount: Int) -> String {
+    if totalCount < 0 {
+        fatalError("Totla Count must be non negative.")
+    }
+    var totalPool: String = ""
+    for type in types {
+        totalPool += getCharacterPool(type: type)
+    }
+    return String((0...1).compactMap({_ in getCharacterPool(type: prefixType).randomElement()})) + String((0...totalCount - 1).compactMap({_ in totalPool.randomElement()}))
+}
+
+private func getRandomWithRandomLength(type: CharacterPool, lengthMin: Int, lengthMax: Int) -> String {
+    if lengthMax <= lengthMin {
+        fatalError("Maximum length must be greater than minimum length.")
+    }
+    guard let count = (lengthMin...lengthMax).randomElement() else { return "" }
+    return String((0...count).compactMap({_ in getCharacterPool(type: type).randomElement()}))
 }
