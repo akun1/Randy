@@ -7,7 +7,7 @@
 
 ## Usage
 
-As of now, there's a default random generator. Here are all the calls and sample outputs:
+As of now, there's a default random generator. All you have to do is ```import Randy``` on the file you need to use it in and then call the ```getDefaultRandom``` function with the type of random text you want as the argument. All the types of random text can be found below. Here are all the calls and sample outputs:
 
 **Calls:**
 
