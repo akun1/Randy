@@ -7,7 +7,7 @@
 
 ## Usage
 
-As of now, there's a default random generator. Here are all the calls and their outputs:
+As of now, there's a default random generator. Here are all the calls and some sample outputs:
 
 ```
 getDefaultRandom(type: .address) //8181 cijacija Drive
