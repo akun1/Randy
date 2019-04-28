@@ -14,10 +14,11 @@ An easy to use Swift framework generating random values for testing and developm
 
 |         | Main Features  |
 ----------|-----------------
-:v: | Say goodbye to hard coding random values during testing.
-:exclamation:| Support for 16+ types of form text.
-:heart: | Simply syntax for ease of use.
-:baby_chick: | Written in pure Swift.
+:v: | Say goodbye to hard coding random values during testing
+:exclamation:| Support for 16+ types of form text
+:heart: | Simply syntax for ease of use
+:baby_chick: | Written in pure Swift
+
 
 ## Usage
 
