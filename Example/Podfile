@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Randy_Example' do
+  pod 'Randy', :path => '../'
+
+  target 'Randy_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
