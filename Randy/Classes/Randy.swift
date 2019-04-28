@@ -1,5 +1,5 @@
 
-// MARK: - Classes & Enums
+// MARK: - Classes, Enums, Structs
 
 public enum FormType {
     case username
@@ -21,7 +21,7 @@ public struct CharacterPool {
     private init() {}
 }
 
-// MARK: - Functions
+// MARK: - Public Functions
 
 public func getDefaultRandom(type: FormType) -> String {
     
@@ -57,6 +57,8 @@ public func getDefaultRandom(type: FormType) -> String {
     }
     return result
 }
+
+// MARK: - Private Functions
 
 private func getRandomElements(arr: [Character], min: Int = 0, max: Int) -> [Character] {
     return (min...max).compactMap({_ in arr.randomElement()})
