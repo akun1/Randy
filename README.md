@@ -9,7 +9,7 @@
 
 As of now, there's a default random generator. Here are all the calls and sample outputs:
 
-Calls:
+**Calls:**
 
 ```
 print("Username: " + getDefaultRandom(type: .username))
@@ -30,7 +30,7 @@ print("Car VIN Post-1981: " + getDefaultRandom(type: .carVinNumberPost1981))
 print("Bad ISBN13: " + getDefaultRandom(type: .badIsbn13))
 ```
 
-Outputs:
+**Outputs:**
 
 ```
 Username: wLSpg4ZU
@@ -55,7 +55,10 @@ Bad ISBN13: 9786711130335
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## To Do:
+
+* Unit tests for each type.
+* Additional types such as month, valid ISBN, credit card expiration date.
 
 ## Installation
 
