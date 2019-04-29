@@ -6,7 +6,6 @@ class Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
         continueAfterFailure = true
     }
     
@@ -76,7 +75,7 @@ class Tests: XCTestCase {
             pattern = "[0-9]{17}"
             break
         case .badIsbn13:
-            pattern = "\\b978\\b|\\b979\\b[0-9]{10}"
+            pattern = "^(979|978){1}[0-9]{10}"
             break
         }
         return NSPredicate(format: "SELF MATCHES %@", pattern)
