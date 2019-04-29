@@ -31,54 +31,55 @@ class Tests: XCTestCase {
         var pattern: String = ""
         switch type {
         case .username:
-            pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            pattern = "[A-Z0-9a-z]{8}"
             break
         case .password:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[A-Z0-9a-z!@#$%^&*()]{10}"
             break
         case .email:
             pattern = "[A-Z0-9a-z]+@gmail.com"
             break
         case .phoneNumber:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{10}"
             break
         case .day:
-            pattern = "([\\w\\d]){8})"
+            pattern = "\\bMonday\\b|\\bTuesday\\b|\\bWednesday\\b|\\bThursday\\b|\\bFriday\\b|\\bSaturday\\b|\\bSunday\\b"
             break
         case .year:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{4}"
             break
         case .address:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[1-9]{1}[0-9]{3}\\s[a-z]{6}\\s+\\bDrive\\b"
             break
         case .zip:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{5}"
             break
         case .creditCardNumber:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{16}"
             break
         case .creditCardSecurityCode:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{3}"
             break
         case .socialSecurityNumber:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{9}"
             break
         case .driversLicense:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[1-9]{1}[0-9]{7}"
             break
         case .carLicensePlateNumber:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[1-9]{1}[0-9A-Z]{6}"
             break
         case .carVinNumberPre1981:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{11,17}"
             break
         case .carVinNumberPost1981:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[0-9]{17}"
             break
         case .badIsbn13:
-            pattern = "([\\w\\d]){8})"
+            pattern = "\\b978\\b|\\b979\\b[0-9]{10}"
             break
         }
         return NSPredicate(format: "SELF MATCHES %@", pattern)
     }
 }
+
