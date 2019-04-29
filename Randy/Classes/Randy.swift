@@ -1,7 +1,7 @@
 
 // MARK: - Classes, Enums, Structs
 
-public enum FormType {
+public enum FormType: CaseIterable {
     case username
     case password
     case email
