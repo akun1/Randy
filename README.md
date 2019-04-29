@@ -70,9 +70,9 @@ Bad ISBN13: 9786711130335
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## To Do:
+## To Do / To Build On:
 
-* Unit tests for each type.
+* Unit tests for each type (Up to date as of 4/29/2019)
 * Additional types such as month, valid ISBN, credit card expiration date.
 
 ## Installation
