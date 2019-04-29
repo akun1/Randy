@@ -6,6 +6,8 @@ class Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        continueAfterFailure = true
     }
     
     override func tearDown() {
@@ -13,44 +15,29 @@ class Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testDefaultRandom(type: FormType) {
-        
+    func testGetDefaultRandomFunc() {
+        FormType.allCases.forEach { (type) in
+            executeTestDefaultRandom(type: type, textToTest: getDefaultRandom(type: type))
+        }
     }
     
-    //    case username
-    //    case password
-    //    case email
-    //    case phoneNumber
-    //    case day
-    //    case year
-    //
-    //    case address
-    //    case zip
-    //
-    //    case creditCardNumber
-    //    case creditCardSecurityCode
-    //
-    //    case socialSecurityNumber
-    //
-    //    case driversLicense
-    //    case carLicensePlateNumber
-    //    case carVinNumberPre1981
-    //    case carVinNumberPost1981
-    //
-    //    case badIsbn13
-    
+    func executeTestDefaultRandom(type: FormType, textToTest: String) {
+        var predicate: NSPredicate = NSPredicate()
+        predicate = getPredicate(type: type)
+        XCTAssert(predicate.evaluate(with: textToTest), "Type Failed: \(type)")
+    }
     
     func getPredicate(type: FormType) -> NSPredicate {
         var pattern: String = ""
         switch type {
         case .username:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
             break
         case .password:
             pattern = "([\\w\\d]){8})"
             break
         case .email:
-            pattern = "([\\w\\d]){8})"
+            pattern = "[A-Z0-9a-z]+@gmail.com"
             break
         case .phoneNumber:
             pattern = "([\\w\\d]){8})"
@@ -92,12 +79,6 @@ class Tests: XCTestCase {
             pattern = "([\\w\\d]){8})"
             break
         }
-        return NSPredicate(format: "self MATCHES [c] %@", pattern)
+        return NSPredicate(format: "SELF MATCHES %@", pattern)
     }
 }
-//    if predicate.evaluate(with: "(888) 555-1111") {
-//    print("Valid")
-//    }
-//    else {
-//    print("Invalid")
-//}
