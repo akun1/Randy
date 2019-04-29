@@ -3,16 +3,18 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 
-language: objective-c  #1
+language: objective-c
 osx_image: xcode7.3
-xcode_project: Randy.xcodeproj #3
-xcode_scheme: Randy #4
-xcode_sdk: iphonesimulator8.4 #5
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
+xcode_project: Randy.xcodeproj
+xcode_scheme: Randy
+xcode_sdk: iphonesimulator8.4
+cache: cocoapods
+podfile: Example/Podfile
+before_install:
+ - gem install cocoapods
+ - pod install --project-directory=Example
 script:
 - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/Randy.xcworkspace -scheme Randy-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
+#- xctool -workspace Randy.xcworkspace -scheme Randy -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+#- xctool test -workspace Randy.xcworkspace -scheme RandyTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 - pod lib lint

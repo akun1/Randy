@@ -17,7 +17,7 @@
                BlueprintIdentifier = "1E045BC45736E2AADC605FBD238299AA"
                BuildableName = "Randy.framework"
                BlueprintName = "Randy"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
             BlueprintIdentifier = "1E045BC45736E2AADC605FBD238299AA"
             BuildableName = "Randy.framework"
             BlueprintName = "Randy"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>

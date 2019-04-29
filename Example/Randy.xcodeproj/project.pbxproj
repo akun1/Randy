@@ -46,7 +46,7 @@
 		80F5F4FE79E29C3363DB4CAF /* Pods-Randy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Randy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Randy_Example/Pods-Randy_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9298780242E7B5E637768048 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B35C476FEC4BCDEC75529E48 /* Pods-Randy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Randy_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Randy_Tests/Pods-Randy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BA03A6B4A462846E1BC32CD9 /* Randy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Randy.podspec; path = ../Randy.podspec; sourceTree = "<group>"; };
+		BA03A6B4A462846E1BC32CD9 /* Randy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Randy.podspec; path = ../Randy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D366E81EB5ACE63507531D12 /* Pods_Randy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Randy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
