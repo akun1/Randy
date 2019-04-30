@@ -5,12 +5,10 @@ class Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         continueAfterFailure = true
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
@@ -23,7 +21,7 @@ class Tests: XCTestCase {
     func executeTestDefaultRandom(type: FormType, textToTest: String) {
         var predicate: NSPredicate = NSPredicate()
         predicate = getPredicate(type: type)
-        XCTAssert(predicate.evaluate(with: textToTest), "Type Failed: \(type)")
+        XCTAssertTrue(predicate.evaluate(with: textToTest), "Type Failed: \(type)")
     }
     
     func getPredicate(type: FormType) -> NSPredicate {
