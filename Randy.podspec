@@ -12,7 +12,7 @@ This library provides easy to use functions that generate random values that you
   s.homepage     = "https://github.com/akun1/Randy"
   s.author             = { "Akash Kundu" => "dev.akashkundu@gmail.com" }
 
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "9.0"
   s.swift_version = "5.0"
 
   s.source       = { :git => "https://github.com/akun1/Randy.git", :tag => "#{s.version}" }
