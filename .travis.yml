@@ -17,5 +17,5 @@ script:
 #- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/Randy.xcworkspace -scheme Randy-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
 #- xctool -workspace Randy.xcworkspace -scheme Randy -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 #- xctool test -workspace Randy.xcworkspace -scheme RandyTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-- xcodebuild test -workspace 'Randy.xcworkspace' -scheme 'Randy_Tests' -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.4'
+- xcodebuild test -workspace './Example/Randy.xcworkspace' -scheme 'RandyTests' -destination 'platform=iOS Simulator,name=iPhone 6,OS=12.2'
 - pod lib lint
