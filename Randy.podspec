@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Randy"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "Random value generation made easy."
   s.license      = { :type => 'MIT' }
 
