@@ -313,7 +313,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Randy_Example/Pods-Randy_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Randy_Example/Pods-Randy_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Randy/Randy.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -324,7 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Randy_Example/Pods-Randy_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Randy_Example/Pods-Randy_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

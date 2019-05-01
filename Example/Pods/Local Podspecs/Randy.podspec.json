@@ -1,22 +1,23 @@
 {
   "name": "Randy",
-  "version": "0.1.0",
-  "summary": "A short description of Randy.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/akashkundu92@gmail.com/Randy",
+  "version": "1.1.2",
+  "summary": "Random value generation made easy.",
   "license": {
-    "type": "MIT",
-    "file": "LICENSE"
+    "type": "MIT"
   },
+  "description": "This library provides easy to use functions that generate random values that you can use to test your app or speed up the development process.",
+  "homepage": "https://github.com/akun1/Randy",
   "authors": {
-    "akashkundu92@gmail.com": "akashkundu92@gmail.com"
-  },
-  "source": {
-    "git": "https://github.com/akashkundu92@gmail.com/Randy.git",
-    "tag": "0.1.0"
+    "Akash Kundu": "dev.akashkundu@gmail.com"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "Randy/Classes/**/*"
+  "swift_version": "5.0",
+  "source": {
+    "git": "https://github.com/akun1/Randy.git",
+    "tag": "1.1.2"
+  },
+  "source_files": "Randy/Classes/**/*",
+  "exclude_files": "Classes/Exclude"
 }
