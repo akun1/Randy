@@ -74,6 +74,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 * Unit tests for each type (Up to date as of 4/29/2019)
 * Additional types such as month, valid ISBN, credit card expiration date.
+* Solve issues.
+* Add Jazzy docs.
 
 ## Installation
 
